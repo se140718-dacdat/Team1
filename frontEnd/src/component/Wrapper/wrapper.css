@@ -1,0 +1,325 @@
+#wrapper {
+    height: 100%;
+    display: flex;
+}
+
+#wrapper .menu {
+    height: calc(100vh);
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#wrapper .left-menu {
+    display: inline-block;
+    min-width: 224px;
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    position: relative;
+    overflow-y: scroll;
+    height: calc(100vh - 52px)
+}
+
+.app-title,
+.tool-title {
+    font-size: 17px;
+}
+
+.app-title {
+    margin-bottom: 8px;
+}
+
+.app-name {
+    font-size: 36px;
+    border-bottom: 1px solid;
+}
+
+.app-name span {
+    color: #3084ff;
+}
+
+.app-name p {
+    font-size: 12px;
+    letter-spacing: 0;
+    color: #a6a6a6;
+}
+
+#wrapper .right-content {
+    position: relative;
+    display: inline-block;
+    width: calc(100vw - 224px);
+    padding: 0 80px 0 5px;
+    overflow: scroll;
+}
+
+#wrapper .right-content-tool {
+    height: 100vh;
+}
+
+#wrapper .menu-item {
+    padding: 17px 0 17px 22px;
+    border: none;
+}
+
+#wrapper .menu-item:hover .menu-item-link {
+    color: #3084ff!important;
+}
+
+#wrapper .menu-item-link {
+    font-size: 15px;
+    color: #898989;
+}
+
+.content-description {
+    width: 100%;
+    padding: 0 199.5px;
+    text-align: center;
+    font-size: 13px;
+    color: #898989;
+}
+
+.content-logo {
+    text-align: center;
+    font-size: 36px;
+    padding-top: 40px;
+}
+
+.logo-g {
+    color: #3084ff;
+}
+
+.logo-uni {
+    letter-spacing: 1.5px;
+}
+
+.common-function,
+.app-container,
+.tool-container {
+    padding: 20px 20px 0;
+    height: 100vh;
+}
+
+.row-common {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #ccc;
+}
+
+#wrapper .row-tool {
+    border-bottom: 1px solid #ccc;
+    padding: 35px 0 !important;
+    position: relative;
+}
+
+#wrapper .viewmore {
+    position: absolute;
+    left: 94.5%;
+    font-size: 12px;
+}
+
+#wrapper .tool-container .row-tool {
+    border-bottom: none;
+    padding: 0 !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.row {
+    padding: 0 !important;
+}
+
+#wrapper .row img {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+#wrapper .btn-star {
+    background-color: #666;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+#wrapper .star-for-img {
+    position: absolute;
+    bottom: 0%;
+}
+
+#wrapper .star-for-tool {
+    position: absolute;
+    bottom: 0%;
+    left: -6%;
+    top: 28px;
+}
+
+#wrapper .btn-star:hover {
+    background-color: #3183f7;
+}
+
+#wrapper .icon-star {
+    width: 12px;
+    height: 11.45px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: #fff;
+}
+
+#wrapper .tool-icon {
+    width: 40px;
+}
+
+#wrapper .tool-item {
+    margin: 20px 0;
+}
+
+#wrapper .tool-item * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#wrapper .tool-description {
+    padding-left: 10px;
+}
+
+#wrapper .tool-description * {
+    display: block;
+    max-width: 250px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#wrapper .tool-name {
+    font-size: 10px;
+    color: #3084ff!important;
+}
+
+#wrapper .tool-code {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#wrapper .tool-description-content {
+    font-size: 12px;
+    color: #505253;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+#wrapper .tool-dropdown span {
+    border-radius: 20px;
+    border: 1px solid;
+    width: 40px;
+    text-align: center;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 7px;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    position: relative;
+}
+
+#wrapper .tool-dropdown span:hover {
+    background-color: #3a3d3f;
+    border: none;
+    color: #fff;
+}
+
+#wrapper .tool-dropdown {
+    position: relative;
+    ;
+}
+
+#wrapper .tool-dropdown-list {
+    position: absolute;
+    border: medium none;
+    font-size: 12px;
+    left: 0;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgb(86 96 117 / 70%);
+    z-index: 3;
+    background-color: #fff;
+    top: 120%;
+    display: none;
+}
+
+#wrapper .tool-dropdown-item {
+    padding: 10px 20px;
+    line-height: 25px;
+    text-align: left;
+    font-weight: 400;
+    width: 160px;
+}
+
+#wrapper .tool-dropdown-item:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+#wrapper .tool-dropdown-item:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
+#wrapper #all-apps-hide,
+#wrapper #common-function-hide {
+    display: none !important;
+}
+
+#wrapper .tool-dropdown-item:hover {
+    background-color: #3084ff!important;
+    cursor: pointer;
+    color: #fff;
+}
+
+#wrapper .row-tool {
+    flex-wrap: wrap !important;
+}
+
+.footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    line-height: 50px;
+    background-color: #ccc;
+    width: 100%;
+    left: 224px;
+    padding-left: 10px;
+}
+
+.footer-cmt {
+    color: #676a6c;
+}
+
+#common-function .col-item {
+    flex: 1 25%;
+}
+
+#wrapper .icon-chevronright {
+    display: none;
+    margin-right: 4px;
+}
+
+#wrapper .menu-item:hover .menu-item-link {
+    color: #3084ff!important;
+    padding-left: 5px;
+    transition: all .5s;
+}
+
+#wrapper .menu-item:hover .icon-chevronright {
+    display: inline-block;
+    font-size: 10px;
+    color: #3084ff;
+    margin-left: 10px;
+    transition: all .5s;
+}
