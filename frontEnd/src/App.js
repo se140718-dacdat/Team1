@@ -1,16 +1,18 @@
 import Navbar from "./component/Wrapper/Navbar";
 import './component/Wrapper/wrapper.css';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from "./component/Header/header";
 function App() {
   return (
     <div className="App">
-    <Router>
-        <Navbar/>
+      <Router>
+        <Header />
+        <Navbar />
         <Routes>
           <Route path="/">All courses</Route>
           <Route path="/toolCommon">Tool Common</Route>
         </Routes>
-    </Router>
+      </Router>
     </div>
   );
 }

@@ -15,7 +15,7 @@
     border-right: 1px solid rgba(0, 0, 0, .2);
     position: relative;
     overflow-y: scroll;
-    height: calc(100vh - 52px)
+    height: calc(100vh - 52px);
 }
 
 .app-title,
