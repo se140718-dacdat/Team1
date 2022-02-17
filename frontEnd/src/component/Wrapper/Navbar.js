@@ -1,8 +1,9 @@
 import { ListGroup } from 'react-bootstrap';
 import './wrapper.css'
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import Home from '../Body/home';
 function Navbar() {
     const [toolApp, setToolApp] = useState([]);
 
@@ -17,25 +18,36 @@ function Navbar() {
     //         }
     //     }).then(jsonRes => setToolApp(jsonRes));
     // })
-    return ( 
+    return (
         <div id="Wrapper">
-            <div className = "left-menu clear" style={{maxWidth:"15%"}}>
-                <ListGroup className = "menu" >
-                    <ListGroup.Item className = "menu-item" style={{border:"none"}}>
-                        <Link to="/" className = "menu-item-link" > Alls app </Link>
-                    </ListGroup.Item> 
-                    {
-                        toolApp.map((toolLists, i) => {
-                           return ( 
-                           <ListGroup.Item className = "menu-item" key={i} style={{border:"none"}}>
-                               <Link to={"/" + toolLists.id} className = "menu-item-link" > {toolLists.toolListName + " ("+ toolLists.toolList.length + ")"} </Link> 
-                           </ListGroup.Item>
-                           );
-                        })
-                        
-                    }
-                </ListGroup> 
+            <div className='row'>
+                <div class="col-3">
+                    <div className="left-menu clear">
+                        <ListGroup className="menu" >
+                            <ListGroup.Item className="menu-item" style={{ border: "none" }}>
+                                <Link to="/" className="menu-item-link" > Alls app </Link>
+                            </ListGroup.Item>
+                            {
+                                toolApp.map((toolLists, i) => {
+                                    return (
+                                        <ListGroup.Item className="menu-item" key={i} style={{ border: "none" }}>
+                                            <Link to={"/" + toolLists.id} className="menu-item-link" > {toolLists.toolListName + " (" + toolLists.toolList.length + ")"} </Link>
+                                        </ListGroup.Item>
+                                    );
+                                })
+
+                            }
+                        </ListGroup>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div className="right-content clear" id={"all-apps"}>
+                        <Home />
+                    </div>
+                </div>
             </div>
+
+
         </div>
     )
 }
