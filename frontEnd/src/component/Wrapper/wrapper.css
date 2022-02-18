@@ -271,11 +271,6 @@
     border-radius: 0 0 10px 10px;
 }
 
-#wrapper #all-apps-hide,
-#wrapper #common-function-hide {
-    display: none !important;
-}
-
 #wrapper .tool-dropdown-item:hover {
     background-color: #3084ff!important;
     cursor: pointer;
