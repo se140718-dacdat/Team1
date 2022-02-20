@@ -5,10 +5,9 @@ import Home from '../Body/home';
 import Tools from '../Body/Tools';
 import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col, ListGroup, NavLink } from "react-bootstrap";
 import "./wrapper.css";
-
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -45,7 +44,7 @@ class Navbar extends React.Component {
         });
 
     }
-    
+
 
     // useEffect(() => {
     //     fetch("http://localhost:3001/courses").then((res) => {
@@ -56,35 +55,33 @@ class Navbar extends React.Component {
     // })
     render() {
         return (
-            <div id="Wrapper">
-                <Router>
-                <div className='row'>
-                    <div className="col-3">
-                        <div className="left-menu clear">
-                            <ListGroup className="menu" >
-                                <ListGroup.Item className="menu-item" style={{ border: "none" }}>
-                                    <Link to="/all" className="menu-item-link" > Alls app </Link>
-                                </ListGroup.Item>
-                                {
-                                    this.state.toolApp.map((toolLists, i) => {
-                                        return (
-                                            <ListGroup.Item className="menu-item" key={i} style={{ border: "none" }}>
-                                                <Link to={"/" + toolLists.id} className="menu-item-link" > {toolLists.toolListName + " (" + toolLists.toolList.length + ")"} </Link>
-                                            </ListGroup.Item>
-                                        );
-                                    })
-    
-                                }
-                            </ListGroup>
-                        </div>
+            <div id="wrapper">
+                <Router >
+                    <div className="left-menu clear">
+                        <ListGroup className="menu" >
+                            <ListGroup.Item className="menu-item" style={{ border: "none" }}>
+                                <Link to="/" className="menu-item-link" >
+                                    Alls app
+                                </Link>
+                            </ListGroup.Item>
+                            {
+                                this.state.toolApp.map((toolLists, i) => {
+                                    return (
+                                        <ListGroup.Item className="menu-item" key={i} style={{ border: "none" }}>
+                                            <Link to={"/" + toolLists.id} className="menu-item-link" > {toolLists.toolListName + " (" + toolLists.toolList.length + ")"} </Link>
+                                        </ListGroup.Item>
+                                    );
+                                })
+
+                            }
+                        </ListGroup>
                     </div>
-                    <div className="col-9">
-                        <div className="right-content clear" id={"all-apps"}>
-                            <Switch>
-                                <Route path="/all">
+                    <div className="right-content clear" id={"all-apps"}>
+                        <Switch>
+                            <Route path="/">
                                 <div className="col-9">
-                                            <div className="right-content clear" id={"all-apps"}>
-                                            <div className="right-content-tool">
+                                    <div className="right-content clear" id={"all-apps"}>
+                                        <div className="right-content-tool">
                                             <div className="content-logo">
                                                 <span className="logo-uni">uni</span>
                                                 <span className="logo-g">Gate</span>
@@ -95,204 +92,204 @@ class Navbar extends React.Component {
                                                 centralized notification for approval | Create ticket support,…
                                             </div>
                                             <Container className="app-function">
-                                            
-                                                        <div className="app-title">
-                                                            {" "}
-                                                            {this.state.firstList.toolListName}{" "}
-                                                        </div>
-                                                        <Row className="row-common">
-                                                            {this.state.firstList.toolList.map((toolItem) => {
-                                                                 return (
-                                                                    <Col className="col-common">
-                                                                        <div className="relative">
-                                                                            <a href={toolItem.toolLink} target="_blank">
-                                                                                <img src={toolItem.toolImg} alt={toolItem.toolCode} />
-                                                                                <div className="star-for-img">
-                                                                                    <button className="btn-star">
-                                                                                        <FontAwesomeIcon
-                                                                                            className="icon-star"
-                                                                                            icon={faStar}
+                                                <div className="app-title">
+                                                    {" "}
+                                                    {this.state.firstList.toolListName}{" "}
+                                                </div>
+                                                <Row className="row-common">
+                                                    {this.state.firstList.toolList.map((toolItem) => {
+                                                        return (
+                                                            <Col className="col-common">
+                                                                <div className="relative">
+                                                                    <a href={toolItem.toolLink} target="_blank">
+                                                                        <img src={toolItem.toolImg} alt={toolItem.toolCode} />
+                                                                        <div className="star-for-img">
+                                                                            <button className="btn-star">
+                                                                                <FontAwesomeIcon
+                                                                                    className="icon-star"
+                                                                                    icon={faStar}
+                                                                                />
+                                                                            </button>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                                <div className="tool-item">
+                                                                    <img src={toolItem.toolIcon} className="tool-icon" />
+                                                                    <div className="tool-description">
+                                                                        <div className="tool-name">{toolItem.toolName}</div>
+                                                                        <div className="tool-code">{toolItem.toolCode}</div>
+                                                                        <div className="tool-description-content">
+                                                                            {toolItem.toolDescription}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </Col>
+                                                        );
+                                                    })}
+                                                </Row>
+                                                {this.state.restList.map((appItem) => {
+                                                    if (appItem.toolList.length > 4) {
+                                                        return (
+                                                            <Row className="row-tool">
+                                                                <div className="tool-title">
+                                                                    {" "}
+                                                                    {appItem.toolListName} ({appItem.toolList.length}){" "}
+                                                                </div>
+                                                                {appItem.toolList.slice(0, 4).map((toolItem) => {
+                                                                    return (
+                                                                        <Col>
+                                                                            <NavLink
+                                                                                href={toolItem.toolLink}
+                                                                                target="_blank"
+                                                                                style={{ color: "#000" }}
+                                                                            >
+                                                                                <div className="tool-item">
+                                                                                    <div className="relative">
+                                                                                        <img
+                                                                                            src={toolItem.toolIcon}
+                                                                                            className="tool-icon"
+                                                                                            alt={toolItem.toolName}
                                                                                         />
-                                                                                    </button>
-                                                                                </div>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div className="tool-item">
-                                                                            <img src={toolItem.toolIcon} className="tool-icon" />
-                                                                            <div className="tool-description">
-                                                                                <div className="tool-name">{toolItem.toolName}</div>
-                                                                                <div className="tool-code">{toolItem.toolCode}</div>
-                                                                                <div className="tool-description-content">
-                                                                                    {toolItem.toolDescription}
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </Col>
-                                                                );
-                                                            })}
-                                                        </Row>
-                                                        {this.state.restList.map((appItem) => {
-                                                            if (appItem.toolList.length > 4) {
-                                                                return (
-                                                                    <Row className="row-tool">
-                                                                        <div className="tool-title">
-                                                                            {" "}
-                                                                            {appItem.toolListName} ({appItem.toolList.length}){" "}
-                                                                        </div>
-                                                                        {appItem.toolList.slice(0, 4).map((toolItem) => {
-                                                                            return (
-                                                                                <Col>
-                                                                                    <NavLink
-                                                                                        href={toolItem.toolLink}
-                                                                                        target="_blank"
-                                                                                        style={{ color: "#000" }}
-                                                                                    >
-                                                                                        <div className="tool-item">
-                                                                                            <div className="relative">
-                                                                                                <img
-                                                                                                    src={toolItem.toolIcon}
-                                                                                                    className="tool-icon"
-                                                                                                    alt={toolItem.toolName}
-                                                                                                />
-                                                                                                <div className="tool-description">
-                                                                                                    <div className="tool-name">
-                                                                                                        {toolItem.toolName}
+                                                                                        <div className="tool-description">
+                                                                                            <div className="tool-name">
+                                                                                                {toolItem.toolName}
+                                                                                            </div>
+                                                                                            <div className="tool-code">
+                                                                                                {toolItem.toolCode}
+                                                                                            </div>
+                                                                                            <div className="tool-dropdown">
+                                                                                                <span>...</span>
+                                                                                                <div className="tool-dropdown-list">
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Information
                                                                                                     </div>
-                                                                                                    <div className="tool-code">
-                                                                                                        {toolItem.toolCode}
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Copy link
                                                                                                     </div>
-                                                                                                    <div className="tool-dropdown">
-                                                                                                        <span>...</span>
-                                                                                                        <div className="tool-dropdown-list">
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Information
-                                                                                                            </div>
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Copy link
-                                                                                                            </div>
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Guideline
-                                                                                                            </div>
-                                                                                                        </div>
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Guideline
                                                                                                     </div>
-                                                                                                </div>
-                                                                                                <div className="star-for-tool">
-                                                                                                    <button className="btn-star">
-                                                                                                        <FontAwesomeIcon
-                                                                                                            className="icon-star"
-                                                                                                            icon={faStar}
-                                                                                                        />
-                                                                                                    </button>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
-                                                                                    </NavLink>
-                                                                                </Col>
-                                                                            );
-                                                                        })}
-                                                                        <NavLink
-                                                                            href="#"
-                                                                            className={appItem.id + "-viewmore viewmore"}>
-                                                                            View more
-                                                                        </NavLink>
-                                                                    </Row>
-                                                                );
-                                                            } else {
-                                                                return (
-                                                                    <Row className="row-tool">
-                                                                        <div className="tool-title">
-                                                                            {" "}
-                                                                            {appItem.toolListName} ({appItem.toolList.length}){" "}
-                                                                        </div>
-                                                                        {appItem.toolList.slice(0, 4).map((toolItem) => {
-                                                                            return (
-                                                                                <Col>
-                                                                                    <NavLink
-                                                                                        href={toolItem.toolLink}
-                                                                                        target="_blank"
-                                                                                        style={{ color: "#000" }}
-                                                                                    >
-                                                                                        <div className="tool-item">
-                                                                                            <div className="relative">
-                                                                                                <img
-                                                                                                    src={toolItem.toolIcon}
-                                                                                                    className="tool-icon"
-                                                                                                    alt={toolItem.toolName}
+                                                                                        <div className="star-for-tool">
+                                                                                            <button className="btn-star">
+                                                                                                <FontAwesomeIcon
+                                                                                                    className="icon-star"
+                                                                                                    icon={faStar}
                                                                                                 />
-                                                                                                <div className="tool-description">
-                                                                                                    <div className="tool-name">
-                                                                                                        {toolItem.toolName}
-                                                                                                    </div>
-                                                                                                    <div className="tool-code">
-                                                                                                        {toolItem.toolCode}
-                                                                                                    </div>
-                                                                                                    <div className={"tool-dropdown"}>
-                                                                                                        <span>...</span>
-                                                                                                        <div className="tool-dropdown-list">
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Information
-                                                                                                            </div>
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Copy link
-                                                                                                            </div>
-                                                                                                            <div className="tool-dropdown-item">
-                                                                                                                Guideline
-                                                                                                            </div>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div className="star-for-tool">
-                                                                                                    <button className="btn-star">
-                                                                                                        <FontAwesomeIcon
-                                                                                                            className="icon-star"
-                                                                                                            icon={faStar}
-                                                                                                        />
-                                                                                                    </button>
-                                                                                                </div>
-                            
-                                                                                            </div>
-                            
+                                                                                            </button>
                                                                                         </div>
-                            
-                                                                                    </NavLink>
-                            
-                                                                                </Col>
-                                                                            );
-                            
-                                                                        })}
-                            
-                                                                    </Row>
-                            
-                                                                );
-                            
-                                                            }
-                            
-                                                        })}
-                            
+                                                                                    </div>
+                                                                                </div>
+                                                                            </NavLink>
+                                                                        </Col>
+                                                                    );
+                                                                })}
+                                                                <NavLink
+                                                                    href="#"
+                                                                    className={appItem.id + "-viewmore viewmore"}>
+                                                                    View more
+                                                                </NavLink>
+                                                            </Row>
+                                                        );
+                                                    } else {
+                                                        return (
+                                                            <Row className="row-tool">
+                                                                <div className="tool-title">
+                                                                    {" "}
+                                                                    {appItem.toolListName} ({appItem.toolList.length}){" "}
+                                                                </div>
+                                                                {appItem.toolList.slice(0, 4).map((toolItem) => {
+                                                                    return (
+                                                                        <Col>
+                                                                            <NavLink
+                                                                                href={toolItem.toolLink}
+                                                                                target="_blank"
+                                                                                style={{ color: "#000" }}
+                                                                            >
+                                                                                <div className="tool-item">
+                                                                                    <div className="relative">
+                                                                                        <img
+                                                                                            src={toolItem.toolIcon}
+                                                                                            className="tool-icon"
+                                                                                            alt={toolItem.toolName}
+                                                                                        />
+                                                                                        <div className="tool-description">
+                                                                                            <div className="tool-name">
+                                                                                                {toolItem.toolName}
+                                                                                            </div>
+                                                                                            <div className="tool-code">
+                                                                                                {toolItem.toolCode}
+                                                                                            </div>
+                                                                                            <div className={"tool-dropdown"}>
+                                                                                                <span>...</span>
+                                                                                                <div className="tool-dropdown-list">
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Information
+                                                                                                    </div>
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Copy link
+                                                                                                    </div>
+                                                                                                    <div className="tool-dropdown-item">
+                                                                                                        Guideline
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div className="star-for-tool">
+                                                                                            <button className="btn-star">
+                                                                                                <FontAwesomeIcon
+                                                                                                    className="icon-star"
+                                                                                                    icon={faStar}
+                                                                                                />
+                                                                                            </button>
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </NavLink>
+
+                                                                        </Col>
+                                                                    );
+
+                                                                })}
+
+                                                            </Row>
+
+                                                        );
+
+                                                    }
+
+                                                })}
+
                                             </Container>
-                                            </div>
                                         </div>
                                     </div>
-                                </Route>
-                                {
-                                    this.state.toolApp.map((toolList) => {
-                                        return (
-                                            <Route path={"/" + toolList.id}><Tools tool={
-                                                {toolList: this.state.toolApp.find((element) => {
+                                </div>
+                            </Route>
+                            {
+                                this.state.toolApp.map((toolList) => {
+                                    return (
+                                        <Route path={"/" + toolList.id}><Tools tool={
+                                            {
+                                                toolList: this.state.toolApp.find((element) => {
                                                     return element.id === toolList.id;
-                                                    }),
-                                                 toolId: toolList.id
-                                                }}  /></Route>
-                                        )
-                                    })
-                                }
-                            </Switch>
-                        </div>
+                                                }),
+                                                toolId: toolList.id
+                                            }} /></Route>
+                                    )
+                                })
+                            }
+                        </Switch>
                     </div>
-                </div>
-    
+
+
+
                 </Router>
-    
+
             </div>
         )
     }

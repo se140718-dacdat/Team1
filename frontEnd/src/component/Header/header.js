@@ -24,7 +24,6 @@ const Header = () => {
     const handleClick = () => {
         toggle(!on);
     };
-    const [style, setStyle] = useState({ display: "none" });
     function onChange(checked) {
         console.log(`switch to ${checked}`);
       }

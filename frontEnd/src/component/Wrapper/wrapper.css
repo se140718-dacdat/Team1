@@ -1,6 +1,7 @@
 #wrapper {
     height: 100%;
     display: flex;
+    padding-top: 52px;
 }
 
 #wrapper .menu {
@@ -45,7 +46,7 @@
 #wrapper .right-content {
     position: relative;
     display: inline-block;
-    width: calc(100vw - 224px);
+    width: calc(100vw - 180px);
     padding: 0 80px 0 5px;
     overflow: scroll;
 }
